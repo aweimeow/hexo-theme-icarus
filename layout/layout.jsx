@@ -11,7 +11,8 @@ module.exports = class extends Component {
     render() {
         const { env, site, config, page, helper, body } = this.props;
         const language = page.lang || page.language || config.language;
-        const columnCount = (page.__post == true || page.__page == true) && 2 || Widgets.getColumnCount(config.widgets);
+        const ispage = (page.__post == true || page.__page == true);
+        const columnCount = Widgets.getColumnCount(config.widgets);
         return <html lang={language ? language.substr(0, 2) : ''}>
             <Head env={env} site={site} config={config} helper={helper} page={page} />
             <body class={`is-${columnCount}-column`}>
@@ -24,13 +25,14 @@ module.exports = class extends Component {
                                 'order-2': true,
                                 'column-main': true,
                                 'is-12': columnCount === 1,
+                                'is-11-tablet is-9-desktop is-9-widescreen': ispage,
                                 'is-9-tablet is-9-desktop is-9-widescreen': columnCount === 2,
                                 'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
                             })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            {(page.__post != true && page.__page != true) &&
-                                <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
+                            {(!ispage) &&
+                                <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
                             }
+                                <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
                         </div>
                     </div>
                 </section>

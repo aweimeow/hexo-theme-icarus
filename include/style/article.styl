@@ -52,15 +52,74 @@ article
                 background: transparent
 
             blockquote
-                &.pullquote
-                    float: right
-                    max-width: 50%
-                    font-size: 1.15rem
+                position: static
+                font-size: 1.1em
+                padding: 10px 20px 10px 54px
+                background: rgba(0,0,0,0.03)
+                border-left: 5px solid #ee6e73
+                &:before
+                    top: 20px
+                    left: -40px
+                    content: "\f10d"
+                    color: #e2e2e2
+                    font-size: 32px;
+                    font-family: FontAwesome
+                    text-align: center
                     position: relative
-
                 footer
-                    strong + cite
-                        margin-left: .5em
+                    font-size: font-size
+                    margin: line-height 0
+                    font-family: font-sans
+                    cite
+                        &:before
+                            content: "—"
+                            padding: 0 0.5em
+            .colorquote
+                position: relative;
+                padding: 1em 1.5em;
+                color: #4a4a4a;
+                margin-bottom: 1em;
+                &:before
+                    content: " ";
+                    position: absolute;
+
+                    top: 50%;
+                    left: -14.5px;
+                    margin-top: -12px;
+                    width: 24px;
+                    height: 24px;
+
+                    border-radius: 50%;
+                    text-align: center;
+
+                    color: white;
+                    background-size: 16px 16px;
+                    background-position: 4px 4px;
+                    background-repeat: no-repeat;
+                &.info
+                    border-color: hsl(204, 86%, 53%);
+                    background-color: hsl(204, 86%, 93%);
+                    &:before
+                        background-color: hsl(204, 86%, 53%);
+                        background-image: url("../img/info.svg");
+                &.success
+                    border-color: hsl(141, 71%, 48%);
+                    background-color: hsl(141, 70%, 88%);
+                    &:before
+                        background-color: hsl(141, 71%, 48%);
+                        background-image: url("../img/check.svg");
+                &.warning
+                    border-color: hsl(48, 100%, 67%);
+                    background-color: hsl(48, 100%, 91%);
+                    &:before
+                        background-color: hsl(48, 100%, 67%);
+                        background-image: url("../img/question.svg");
+                &.danger
+                    border-color: hsl(348, 100%, 61%);
+                    background-color: hsl(348, 100%, 85%);
+                    &:before
+                        background-color: hsl(348, 100%, 61%);
+                        background-image: url("../img/exclamation.svg");
 
 .rtl
     direction: rtl
