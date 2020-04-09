@@ -16,7 +16,7 @@ common:
 widget:
     follow: '訂閱 RSS'
     recents: '最新文章'
-    links: '連結'
+    links: '好友們'
     tag_cloud: '標籤雲'
     catalogue: '文章目錄'
     subscribe_email: '訂閱 Email'
